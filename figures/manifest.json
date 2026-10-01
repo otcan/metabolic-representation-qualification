@@ -1,0 +1,19 @@
+{
+  "script_sha256": "e9948eef222542f10d3f2802aafe0365c57dee8c58f354ea392d33730745a745",
+  "files": {
+    "figure2-source.csv": "eb8fcbcf079526195a88ea0f88187129e7300fbce90b21f4d9972070ab9b3f5c",
+    "figure1-source.csv": "435b312e5fde68f3bda88dcbd31b953d23ec3410ecfba1ce8250cde3ffa0b292",
+    "figure2-comparisons.svg": "54eb72d30d1a02c6eff80dd8443ab8c4769755ff0185d8aa918a1187e060d18a",
+    "figure1-qualification-ladder.pdf": "724d0cce39b6f874ed404f76e29f4190506849eac014a2cffa11b710cbb0ad68",
+    "figure2-comparisons.png": "a0a4b8ced2ca6ee7afac1a6d5c963f89b1c35d173ff365f886b7ca86c033ef05",
+    "figure1-performance.png": "5c7c320a2670ceb04a1df5dd78c900fca8599c8a3866bb836b75b1c02e63719b",
+    "figure1-qualification-ladder.png": "e68101314c290885838f9d38b7c841bbefd973af0f5d6e5dd3f8519965b626a2",
+    "figure2-comparisons.pdf": "abed6fb67927e0d8184d523394e21ea750499a0284007049e6fc5c3646bc582c",
+    "figure1-qualification-ladder.svg": "501e9834aa2176c284141c8a44c3c28b85f1a1a78329919edf9bcb50bbdb2fc0",
+    "figure1-performance.pdf": "839196452913cf48396ef0caa665b03bfecdd3a0e2f1f4a8e88215a1844470e5",
+    "figure1-performance.svg": "342b39e35f70041debf49e13018d219f62bb08e52f1921dfb3bd093561ef2388",
+    "qualification-ladder.csv": "867543055d23a93e5502e49a5dfc73eb3a3c47dcbe7a5b37b9831cf912881191",
+    "qualification-steps.csv": "2e607e5ba807c99dd6882b5a827333bd854146d85dcfa41fb91762eb1c685270"
+  },
+  "ladder_script_sha256": "016cc88c626b4cc4c854c2ba41c153e37365b08ede6eca648f5e62b052f2ad8a"
+}

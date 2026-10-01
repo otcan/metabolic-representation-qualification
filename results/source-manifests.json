@@ -1,0 +1,44 @@
+[
+  {
+    "dataset": "st002081",
+    "mode": "primary",
+    "manifest": "runs/m2-human-r2-st002081-primary/manifest.json",
+    "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2"
+  },
+  {
+    "dataset": "st002081",
+    "mode": "missingness",
+    "manifest": "runs/m2-human-r2-st002081-missingness/manifest.json",
+    "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2"
+  },
+  {
+    "dataset": "st002081",
+    "mode": "resolution",
+    "manifest": "runs/m2-human-r2-st002081-resolution/manifest.json",
+    "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2"
+  },
+  {
+    "dataset": "st000818",
+    "mode": "primary",
+    "manifest": "runs/m2-human-r2-st000818-primary/manifest.json",
+    "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2"
+  },
+  {
+    "dataset": "st000818",
+    "mode": "missingness",
+    "manifest": "runs/m2-human-r2-st000818-missingness/manifest.json",
+    "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2"
+  },
+  {
+    "dataset": "st000818",
+    "mode": "resolution",
+    "manifest": "runs/m2-human-r2-st000818-resolution/manifest.json",
+    "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2"
+  },
+  {
+    "dataset": "ccle",
+    "mode": "primary",
+    "manifest": "runs/m2-ccle/manifest.json",
+    "code_sha256": "8edfad45b2cda68a2770874ba4007e3b2033c968c0a5722c8de9453c121bdeab"
+  }
+]

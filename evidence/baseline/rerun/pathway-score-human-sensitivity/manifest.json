@@ -1,0 +1,43 @@
+{
+  "analysis_id": "human_structural_pathway_score_sensitivity_v1",
+  "completed_at": "2026-09-21T13:30:09.803459+00:00",
+  "decision": "HUMAN_STRUCTURAL_SENSITIVITY_ROBUST",
+  "post_result_sensitivity": true,
+  "config": "work/release/config/pathway-score-human-sensitivity.yaml",
+  "config_sha256": "58efc26ca868416e00d7c29428f4d91887dcc3931529934bea91dca5d25db2e8",
+  "protocol": "work/release/docs/protocol-pathway-score-human-sensitivity.md",
+  "protocol_sha256": "10ed8852dac4b32ffda49fbf5b999f0ad484ec8701bff7f2f9995f84e5e4a307",
+  "implementation_sha256": "a671ae31212dc742cc0bba5b05c62971317255af4ce4c6889820e18b84569005",
+  "source_integrity": {
+    "st002081": "verified",
+    "st000818": "verified"
+  },
+  "settings_per_dataset": 9,
+  "parallel_jobs": 2,
+  "adjudication": [
+    {
+      "dataset": "ST000818",
+      "settings": 9,
+      "all_degrees_preserved": true,
+      "all_rmse_points_positive": true,
+      "all_precision_points_positive": true,
+      "rmse_ci_pass_rate": 1.0,
+      "precision_ci_pass_rate": 1.0
+    },
+    {
+      "dataset": "ST002081",
+      "settings": 9,
+      "all_degrees_preserved": true,
+      "all_rmse_points_positive": true,
+      "all_precision_points_positive": true,
+      "rmse_ci_pass_rate": 1.0,
+      "precision_ci_pass_rate": 1.0
+    }
+  ],
+  "claim_boundary": "This post-result grid tests robustness of structural-score prediction to reasonable model and descriptor settings in two public cohorts. It is not prospective confirmation and does not establish genetics, physiological flux, diagnosis, treatment response or clinical utility.",
+  "output_sha256": {
+    "sensitivity-grid.csv": "825a5c6307885a04cfffff17e47d20f862ae3438f5f8c94583826d06680465c7",
+    "sensitivity-summary.csv": "b551812e8e3d0088159e8ddcfaef20ed2fec7581249d9a786ccb96470b9076a0",
+    "report.md": "00645351f85fb47bf4a48fd4f01619453da6ec255c4152ce3ba9770458c6dcbd"
+  }
+}

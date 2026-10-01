@@ -1,0 +1,39 @@
+{
+  "completed_at": "2026-09-21T13:45:12.681993+00:00",
+  "pid": 1625216,
+  "dataset": "st002081",
+  "mode": "primary",
+  "adaptive": true,
+  "pilot": false,
+  "completed_outer": 25,
+  "samples": 1539,
+  "groups": 112,
+  "features": 493,
+  "descriptors": 95,
+  "elapsed_seconds": 74.28330470190849,
+  "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2",
+  "protocol_sha256": "b0bb3f38101a4d469eef9cc4cf4479433e0a57536df6edf15a74f2194f9def4f",
+  "peak_rss_kib": 314820,
+  "resolution_amendment_sha256": "3cddaf5b7de0fa446da58e63f5e11d4b9dac4da96ffa89a7467b613a31ef8331",
+  "input_receipt_sha256": "b1e6e46db67df5a76645b7dbde354fa01ed98c579c797250a0d92d86b9b5f8bb",
+  "command": [
+    "scripts/human_mean_sensitivity.py",
+    "--dataset",
+    "st002081"
+  ],
+  "private_losses": "work/m2-human/m2-human-mean-secondary-v2-st002081",
+  "output_sha256": {
+    "exclusions.csv": "a4c7476525744d8036d0a6168283209aa8463bc78cb66aa2a3a3f62917f34293",
+    "split-summary.csv": "32fa826a37c807ec2240ce723a2712053771f3b899063b201b6a64089d1ed58e",
+    "feature-masks.csv": "42d688e174bf45a646938a8e92d1edd2072435dc5f8c890ad5f6acf120e6a130",
+    "budget-grid.csv": "312a9eec845af124e79b46926dc3c4cdf2a0d9e3705b3cb64df39d0a175f2597",
+    "model-metrics.csv": "9f0c689406d8ded55bc15ec872fbff9d645d9ce5965336bfab0accd9db57f68c",
+    "tuning-grid.csv": "6834835e15b479fa0b39ef8aa2c7fe648bf135229cd708afd30232e9f3be8280",
+    "paired-comparisons.csv": "e6f658a6291b1458edc5702a81bc43fe94dcc02bbcbc1f7a0d058b3191caf817",
+    "resolution-changes.csv": "386f5b74efcc8e6c8674840e6fded5b1ee38091022effec07e4d880c84ba7338"
+  },
+  "secondary_outcome_aware": true,
+  "wrapper_sha256": "04c6d8caa5758be5c5b34c769c6385603459fd98d62af50b3b07e1d0896e8e97",
+  "secondary_amendment_sha256": "ef01b7026350f8c73ae7ee0c9bf897cb14c2e1ca8b7eda7ce1d40ef73fe78f59",
+  "wrapper_effect": "adds training-standardized arithmetic mean on identical descriptor memberships; all primary models retained"
+}

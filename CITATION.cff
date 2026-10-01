@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this workflow or evidence release, cite the archived release and the manuscript."
+title: "Metabolic representation qualification ladder"
+type: software
+version: 1.0.0
+doi: "10.5281/zenodo.23080177"
+date-released: 2026-10-01
+authors:
+  - family-names: "Ünver"
+    given-names: "Oğuzcan"
+    orcid: "https://orcid.org/0009-0007-2023-5084"
+    affiliation: "Metastate Bio Inc"
+repository-code: "https://github.com/otcan/metabolic-representation-qualification"
+license: Apache-2.0
+keywords: [metabolomics, lipidomics, benchmarking, null models, pathway analysis]
+preferred-citation:
+  type: article
+  title: "Matched nulls and compact baselines qualify metabolic-state representations"
+  authors:
+    - family-names: "Ünver"
+      given-names: "Oğuzcan"
+  doi: "10.5281/zenodo.23080186"
+  year: 2026
+  notes: "Preprint, not peer reviewed"

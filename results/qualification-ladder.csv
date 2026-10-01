@@ -1,0 +1,11 @@
+dataset,rung,label,note,rmse
+st002081,population_mean,Training mean,no structure,1.0652330100172904
+st002081,degree_preserving_null,Matched null,"same shape, random membership",0.4192164530295592
+st002081,structural_median,Biochemical descriptors,"declared membership, median",0.3167797462633834
+st002081,pca_matched_dimension,Compact statistics,"PCA, same dimension",0.1964201510463495
+st002081,all_visible_ridge,All-visible ridge,"full panel, reference",0.177956330610676
+st000818,population_mean,Training mean,no structure,2.013046693378268
+st000818,degree_preserving_null,Matched null,"same shape, random membership",1.80302190240869
+st000818,structural_median,Biochemical descriptors,"declared membership, median",1.2267063918238397
+st000818,pca_matched_dimension,Compact statistics,"PCA, same dimension",0.8394007069483446
+st000818,all_visible_ridge,All-visible ridge,"full panel, reference",0.8490672976358872

@@ -1,0 +1,39 @@
+{
+  "completed_at": "2026-09-21T13:37:31.739810+00:00",
+  "pid": 1599095,
+  "dataset": "st002081",
+  "mode": "resolution",
+  "adaptive": true,
+  "pilot": false,
+  "completed_outer": 25,
+  "samples": 1539,
+  "groups": 112,
+  "features": 493,
+  "descriptors": 95,
+  "elapsed_seconds": 70.75399358698633,
+  "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2",
+  "protocol_sha256": "b0bb3f38101a4d469eef9cc4cf4479433e0a57536df6edf15a74f2194f9def4f",
+  "peak_rss_kib": 316068,
+  "resolution_amendment_sha256": "3cddaf5b7de0fa446da58e63f5e11d4b9dac4da96ffa89a7467b613a31ef8331",
+  "input_receipt_sha256": "b1e6e46db67df5a76645b7dbde354fa01ed98c579c797250a0d92d86b9b5f8bb",
+  "command": [
+    "scripts/human_extension.py",
+    "--dataset",
+    "st002081",
+    "--mode",
+    "resolution",
+    "--output",
+    "runs/m2-human-r2-st002081-resolution"
+  ],
+  "private_losses": "work/m2-human/m2-human-r2-st002081-resolution",
+  "output_sha256": {
+    "exclusions.csv": "a4c7476525744d8036d0a6168283209aa8463bc78cb66aa2a3a3f62917f34293",
+    "split-summary.csv": "cadd6d8edb84a743219666c22e4475367f65de3bc9e4b37b67d0d122ddad1825",
+    "feature-masks.csv": "42d688e174bf45a646938a8e92d1edd2072435dc5f8c890ad5f6acf120e6a130",
+    "budget-grid.csv": "af1fc6e56fa77d85441b056173fdcc9b71bfde87a06c2674c54111cb67bf8e7b",
+    "model-metrics.csv": "a9b1435ddcf2bda062fbb1dcc69b445824b0f2e738eb9387c10b95f40be49a85",
+    "tuning-grid.csv": "95b8c1070f87dc48903589aadf3aa8691d26adf8118967bc0dea8a199527e15d",
+    "paired-comparisons.csv": "3ad87019d6cc6ea846076ddab335b262b230d813a7dc26481f3271160ad7ec4d",
+    "resolution-changes.csv": "aeb2805b6da8fc23922e00542eb3dd34b935e919b51ffa9c4d89532683259f76"
+  }
+}

@@ -1,0 +1,13 @@
+dataset,step,estimate,ci95_lower,ci95_upper,estimator
+st002081,biochemistry_vs_matched_null,0.1024367067661758,0.0971337307328191,0.1078664854243668,primary equal-group RMSE
+st002081,compact_vs_biochemistry,0.1203595952170338,0.1152881857240773,0.1258316579137586,primary equal-group RMSE
+st002081,matched_null_share,0.7435623797659956,,,descriptive share of training-mean-to-PCA gap
+st002081,biochemistry_share,0.11790422495300794,,,descriptive share of training-mean-to-PCA gap
+st002081,compact_share,0.13853339528099637,,,descriptive share of training-mean-to-PCA gap
+st000818,biochemistry_vs_matched_null,0.5763155105848503,0.0455698202863017,1.0305977555631654,primary equal-group RMSE
+st000818,compact_vs_biochemistry,0.3873056848754951,0.0747885825682883,0.6872267242811407,primary equal-group RMSE
+st000818,matched_null_share,0.17895071716510158,,,descriptive share of training-mean-to-PCA gap
+st000818,biochemistry_share,0.4910471447509707,,,descriptive share of training-mean-to-PCA gap
+st000818,compact_share,0.33000213808392775,,,descriptive share of training-mean-to-PCA gap
+ccle,biochemistry_vs_matched_null,0.1374,0.0971,0.1807,archived property-matched 20-seed ensemble (earlier estimator)
+ccle,compact_vs_biochemistry,0.0923938395228567,0.0830193653636963,0.1033563303628839,primary equal-lineage RMSE

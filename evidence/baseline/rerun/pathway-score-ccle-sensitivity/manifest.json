@@ -1,0 +1,29 @@
+{
+  "analysis_id": "ccle_reaction_topology_sensitivity_v1",
+  "completed_at": "2026-09-21T13:35:31.135310+00:00",
+  "decision": "CCLE_REACTION_TOPOLOGY_SENSITIVITY_ROBUST",
+  "post_result_sensitivity": true,
+  "config": "work/release/config/pathway-score-ccle-sensitivity.yaml",
+  "config_sha256": "98c3286cbf2a118a3baff3e9b0105ca8239b7d0fd283861882b5fde78baaf4ca",
+  "protocol": "work/release/docs/protocol-ccle-pathway-sensitivity.md",
+  "protocol_sha256": "3056cffc065e46404f6cab5c0ea8c707900adc5bc8cdb6ded7b2836002d23c9d",
+  "implementation_sha256": "c0b61a503d27986e4139e0a78ad0c64924c393f3adcb40b3eeff37022f335b83",
+  "primary_artifact_integrity": "verified",
+  "candidate_config_sha256": "1e3555ba16482d8aa5cf716a9a7dd5026e46982e98391fdcd84e6c0201bfa785",
+  "benchmark_config_sha256": "0c9f94c04f6840e496bfe35924a81b0c1838cd08fd5c359411d5b17cf80114dc",
+  "settings": 10,
+  "parallel_jobs": 2,
+  "adjudication": {
+    "settings": 10,
+    "all_point_improvements_positive": true,
+    "random_ci_pass_rate": 1.0,
+    "positive_median_r2_rate": 1.0,
+    "interaction_beats_additive_rate": 0.0
+  },
+  "claim_boundary": "This post-result grid tests robustness of lineage-held-out CCLE prediction to reaction and model definitions. It does not establish human germline effects, personalized prediction, physiological flux, drug response or clinical utility.",
+  "output_sha256": {
+    "setting-summary.csv": "71be8025d1fcaf29800cfdd93acda99b8c3d14eb2bd52770f430cbb3ca1c6dee",
+    "model-metrics-grid.csv": "c9a447ce04775abce485036190cca010a181d0bba20806426d9ed3a58d3c10fb",
+    "report.md": "dab4f0644991370023b9d7bded8c63b476adc88f30bd80ac02d19d946cef2819"
+  }
+}

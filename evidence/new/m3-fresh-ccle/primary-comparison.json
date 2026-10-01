@@ -1,0 +1,20 @@
+{
+  "comparison": "ccle_direct_neighbor_vs_correlation_selected",
+  "reference": "correlation_selected_ridge",
+  "mechanism": "direct_neighbor_ridge",
+  "targets": 60,
+  "biological_groups": 18,
+  "rmse_improvement_sd": -0.09239383952285674,
+  "draws": 10000,
+  "ci95_lower": -0.10335633036288397,
+  "ci95_upper": -0.0830193653636963,
+  "simultaneous99_lower": -0.10733731032777342,
+  "simultaneous99_upper": -0.0806728156794003,
+  "simultaneous_family_size": 5,
+  "signflip_mse_difference": -0.1437062958577337,
+  "signflip_p_two_sided_raw": 9.999000099990002e-05,
+  "holm_status": "requires joint adjustment with four human primary contrasts",
+  "bootstrap_rejected_draws_without_all_targets": 0,
+  "uncertainty_scope": "conditional on fixed fitted predictions and target panel; lineage resampling, not full-pipeline refitting",
+  "pilot_not_full_panel_inference": false
+}

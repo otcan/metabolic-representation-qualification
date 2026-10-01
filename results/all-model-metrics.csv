@@ -1,0 +1,50 @@
+dataset,mode,model,primary_rmse,groups,row_weighted_rmse,metric,source
+st002081,primary,all_visible_ridge,0.177956330610676,112,0.1746536282963249,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-primary/model-metrics.csv
+st002081,primary,degree_preserving_null,0.4192164530295592,112,0.4095997530942726,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-primary/model-metrics.csv
+st002081,primary,descriptor_local_svd,0.2434463992505922,112,0.2389164898505441,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-primary/model-metrics.csv
+st002081,primary,family_median,0.6679738734309266,112,0.6502632126380652,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-primary/model-metrics.csv
+st002081,primary,pca_matched_dimension,0.1964201510463495,112,0.1928545546095651,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-primary/model-metrics.csv
+st002081,primary,population_mean,1.0652330100172904,112,1.012863093306374,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-primary/model-metrics.csv
+st002081,primary,structural_median,0.3167797462633834,112,0.3091053005996755,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-primary/model-metrics.csv
+st002081,missingness,all_visible_ridge,0.1860189703389904,112,0.1818480647074337,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-missingness/model-metrics.csv
+st002081,missingness,degree_preserving_null,0.3995482414523524,112,0.3903993308063159,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-missingness/model-metrics.csv
+st002081,missingness,descriptor_local_svd,0.2409273334458397,112,0.2362399193608319,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-missingness/model-metrics.csv
+st002081,missingness,family_median,0.6598712583407609,112,0.6382643359264035,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-missingness/model-metrics.csv
+st002081,missingness,pca_matched_dimension,0.2137456187798344,112,0.2090782704168312,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-missingness/model-metrics.csv
+st002081,missingness,population_mean,1.064993643540116,112,1.0137508576935566,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-missingness/model-metrics.csv
+st002081,missingness,structural_median,0.3099656383844457,112,0.3027284159930081,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-missingness/model-metrics.csv
+st002081,resolution,all_visible_ridge,0.177956330610676,112,0.1746536282963249,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-resolution/model-metrics.csv
+st002081,resolution,degree_preserving_null,0.4152694915774805,112,0.4052673400295107,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-resolution/model-metrics.csv
+st002081,resolution,descriptor_local_svd,0.243338056550471,112,0.238815277111249,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-resolution/model-metrics.csv
+st002081,resolution,family_median,0.6679738734309266,112,0.6502632126380652,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-resolution/model-metrics.csv
+st002081,resolution,pca_matched_dimension,0.1964201510463495,112,0.1928545546095651,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-resolution/model-metrics.csv
+st002081,resolution,population_mean,1.0652330100172904,112,1.012863093306374,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-resolution/model-metrics.csv
+st002081,resolution,structural_median,0.3163081868434662,112,0.3087181651874736,sqrt(equal biological-group MSE),runs/m2-human-r2-st002081-resolution/model-metrics.csv
+st000818,primary,all_visible_ridge,0.8490672976358872,15,0.8457107287438548,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-primary/model-metrics.csv
+st000818,primary,degree_preserving_null,1.80302190240869,15,1.787256273039075,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-primary/model-metrics.csv
+st000818,primary,descriptor_local_svd,0.957410719643628,15,0.9543045781920392,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-primary/model-metrics.csv
+st000818,primary,family_median,1.8868763292004824,15,1.8713984088352733,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-primary/model-metrics.csv
+st000818,primary,pca_matched_dimension,0.8394007069483446,15,0.8375606876009764,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-primary/model-metrics.csv
+st000818,primary,population_mean,2.013046693378268,15,1.9982650291426065,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-primary/model-metrics.csv
+st000818,primary,structural_median,1.2267063918238397,15,1.2200801140864066,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-primary/model-metrics.csv
+st000818,missingness,all_visible_ridge,0.8490672976358872,15,0.8457107287438548,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-missingness/model-metrics.csv
+st000818,missingness,degree_preserving_null,1.80302190240869,15,1.787256273039075,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-missingness/model-metrics.csv
+st000818,missingness,descriptor_local_svd,0.957410719643628,15,0.9543045781920392,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-missingness/model-metrics.csv
+st000818,missingness,family_median,1.8868763292004824,15,1.8713984088352733,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-missingness/model-metrics.csv
+st000818,missingness,pca_matched_dimension,0.8394007069483446,15,0.8375606876009764,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-missingness/model-metrics.csv
+st000818,missingness,population_mean,2.013046693378268,15,1.9982650291426065,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-missingness/model-metrics.csv
+st000818,missingness,structural_median,1.2267063918238397,15,1.2200801140864066,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-missingness/model-metrics.csv
+st000818,resolution,all_visible_ridge,0.8490672976358872,15,0.8457107287438548,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-resolution/model-metrics.csv
+st000818,resolution,degree_preserving_null,1.7860052616296782,15,1.770226476031146,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-resolution/model-metrics.csv
+st000818,resolution,descriptor_local_svd,0.9619312303129138,15,0.9590143140968278,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-resolution/model-metrics.csv
+st000818,resolution,family_median,1.8868763292004824,15,1.8713984088352733,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-resolution/model-metrics.csv
+st000818,resolution,pca_matched_dimension,0.8629513511738092,15,0.8607887789171353,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-resolution/model-metrics.csv
+st000818,resolution,population_mean,2.013046693378268,15,1.9982650291426065,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-resolution/model-metrics.csv
+st000818,resolution,structural_median,1.2346621011559502,15,1.2283560946120524,sqrt(equal biological-group MSE),runs/m2-human-r2-st000818-resolution/model-metrics.csv
+ccle,primary,all_other_metabolites_ridge,0.6647574940805927,18,0.7013550076932785,sqrt(mean fixed-target/equal available-lineage MSE),runs/m2-ccle/model-metrics.csv
+ccle,primary,correlation_selected_ridge,0.7314864009007853,18,0.7684311222799416,sqrt(mean fixed-target/equal available-lineage MSE),runs/m2-ccle/model-metrics.csv
+ccle,primary,direct_neighbor_ridge,0.8238802404236419,18,0.8696267392887701,sqrt(mean fixed-target/equal available-lineage MSE),runs/m2-ccle/model-metrics.csv
+ccle,primary,global_pca_ridge,0.8090233618345449,18,0.8412210417101273,sqrt(mean fixed-target/equal available-lineage MSE),runs/m2-ccle/model-metrics.csv
+ccle,primary,network_additive_ridge,0.8116866981757241,18,0.8638927514368231,sqrt(mean fixed-target/equal available-lineage MSE),runs/m2-ccle/model-metrics.csv
+ccle,primary,network_interaction_ridge,0.8170399579374167,18,0.8747946283199378,sqrt(mean fixed-target/equal available-lineage MSE),runs/m2-ccle/model-metrics.csv
+ccle,primary,population_mean,0.9865009570085091,18,1.0665510333330497,sqrt(mean fixed-target/equal available-lineage MSE),runs/m2-ccle/model-metrics.csv

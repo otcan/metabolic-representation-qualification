@@ -1,0 +1,18 @@
+{
+  "analysis_id": "pathway_score_publication_figures_v1",
+  "completed_at": "2026-09-21T13:35:47.335667+00:00",
+  "config": "work/release/config/pathway-score-publication-figures.yaml",
+  "config_sha256": "34df01451f1269dff413e0331f023005588985fb812e3d6a6f932ab89e3fe39f",
+  "implementation_sha256": "283b98e0d53d4048dbc1eb9ba28c1d07b5445fe939445093fa1e49b7ad5ba025",
+  "figures": 3,
+  "source_files": 14,
+  "output_sha256": {
+    "figure-1-study-design.png": "ce7c76c7c02901e42248245fd8b00bfb7d4285f0ea186a907f468b457ccf6005",
+    "figure-1-study-design.pdf": "a93695a430020ab83507c2aa908cb4a18f959c5b544b6f47fd8a5961d6d1f673",
+    "figure-2-human-validation.png": "91d912f0d1c2bb70c4bdec2ed779bf16504a30193180709f8aec0e60dc3bd252",
+    "figure-2-human-validation.pdf": "3cdb657e489a8c5411a6891dc276b5243310dba3232dd39357dd5b3b762f692e",
+    "figure-3-ccle-validation.png": "1dfffed5e24bf488d498aba6b47f39edfa20f1ee4b8f4e1692c21f4cb6a136ef",
+    "figure-3-ccle-validation.pdf": "0b7366a0f6719d4a949ceadf11ad54e18ab8c0407ba9d585cdd890da51d0d9e6",
+    "figure-source-index.csv": "084146791fa7fb76c5b0017da49369002e01ec01f09ce6db32d77a0605f0751a"
+  }
+}

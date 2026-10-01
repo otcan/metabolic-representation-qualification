@@ -1,0 +1,30 @@
+id,disposition,evidence,remaining_boundary
+AUD-01,RESOLVED_IN_NEW_ANALYSIS,runs/m2-human-r2-st000818-primary/split-summary.csv,Archived unequal splits preserved as historical defect
+AUD-02,RESOLVED_IN_NEW_ANALYSIS,scripts/human_extension.py;receipts/audit-m5-numerical-review.json,Exactly one baseline per sample-mask-model
+AUD-03,RESOLVED_FOR_NEW_ESTIMAND,runs/m2-ccle/primary-comparison.json,Archive target bootstrap preserved; new lineage intervals conditional on fitted predictions
+AUD-04,BOUNDED_AND_SENSITIVITY_COMPLETE,runs/m2-human-r2-st002081-missingness/;runs/m2-human-r2-st000818-missingness/,Primary fixed panel retrospectively chosen; target universes differ between sensitivity tasks
+AUD-05,CORRECTED_IN_WORKING_METHODS,manuscript/main.md,Archive protocol says median; actual arithmetic mean retained and disclosed
+AUD-06,RESOLVED_WITH_PREFLIGHT,scripts/recover_inputs.py;scripts/human_extension.py;scripts/ccle_extension.py,Portable retrieval must fail on source drift
+AUD-07,RESOLUTION_SENSITIVITY_COMPLETE,runs/m2-human-r2-st002081-resolution/;runs/m2-human-r2-st000818-resolution/,Name parsing is not a full chemically validated reannotation
+AUD-08,ESTIMAND_EXPLICIT,readiness/m2-benchmark-lock-v1.md;manuscript/main.md,Skill relative to training mean is not conventional test-centered pooled R2
+AUD-09,RESOLVED_LOCAL_OUTPUTS,work/m2-human/;work/m2-ccle/full/;runs/m2-ccle/lineage-target-losses.csv,Participant-linked outputs kept local and ignored
+AUD-10,AUTHOR_DECISION,readiness/m4-rights-audit.md;dossier/author-checklist.md,No new redistribution of participant-linked records authorized
+AUD-11,CLAIM_BOUNDED,readiness/m2-benchmark-lock-v1.md;receipts/m2-implementation-repair-r2.md,Historical unseen-data chronology not independently established
+AUD-12,WORDING_AND_NEW_MULTIPLICITY_CORRECTED,results/primary-comparisons.csv;manuscript/main.md,Graph ensemble remains20 sampled realizations not exact uniform randomization
+AUD-13,BUDGETS_SEPARATED,results/human-information-budgets.csv;results/ccle-information-budgets.csv,Fixed prediction-time inputs do not equal development measurement budget
+AUD-14,LABELS_AND_WEIGHTING_EXPLICIT,readiness/m2-benchmark-lock-v1.md;manuscript/main.md,Rows equally weighted in training; groups equally weighted in evaluation
+NEW-01,REPAIRED_AND_SUPERSEDED,receipts/m2-human-v1-superseded.json;receipts/m2-human-r2-tests.log,Initial human v1 outputs excluded from accepted evidence
+NEW-02,COHORT_COUNTS_RECONCILED,readiness/m3-cohort-reconciliation.md,Final source paper agrees112 participants; origin of deposit109 narrative unknown
+NEW-03,HISTORICAL_SOURCE_LIMIT_DISCLOSED,readiness/audit-m3-r2-review.md,Three archived implementation fingerprints cannot be recovered from surviving identical release-source copies
+NEW-04,EVALUATED_CCLE_COUNTS_CORRECTED,receipts/audit-m5-numerical-review.json,913 aligned lines versus876 evaluated lines and18 lineages
+FINAL-01,CORRECTED,manuscript/main.md,Outcome-aware mean is secondary descriptive with complete tables in supplement
+FINAL-02,CORRECTED,manuscript/supplement.md,Direct-reaction candidate rows do not imply validated reaction directionality
+FINAL-03,CORRECTED,manuscript/main.md,Null comparisons and five strong-reference contrasts are separate evidence
+PORT-01,CORRECTED,dossier/REPRODUCIBILITY.md;readiness/audit-portability.md,Git listed for released verifier
+PORT-02,CORRECTED,dossier/REPRODUCIBILITY.md;readiness/audit-portability.md,Poppler listed for PDF metadata text and page inspection
+M5-01,REPAIRED_AND_EXPORT_VALIDATED,supervision/README.md;supervision/provenance.json;scripts/verify_bundle_links.py,Original review bytes preserved; navigation headers explicit; validate actual ZIP layout
+M5-02,REPAIRED_WITH_SYNTHETIC_TESTS,tests/test_runners.py;receipts/m5-full-tests.log;receipts/m5-runner-pre-repair.json,Earlier successful scientific runs used original wrappers; no scientific reruns or result edits
+SUP1-Q1,REVIEW_QUESTION_ANSWERED,SUPERVISOR_REVIEW_001.md;manuscript/main.md;readiness/supervisor-review-001-resolution.md,External cohort independently refitted; no frozen-model transfer claimed
+SUP1-Q2,REVIEW_QUESTION_BOUNDED_AND_TESTED,SUPERVISOR_REVIEW_001.md;runs/m2-human-r2-st002081-missingness/;runs/m2-human-r2-st000818-missingness/,Global complete-case primary panel disclosed; train-only sensitivity complete; unchanged ST000818 panel is not extra missingness stress
+SUP1-Q3,REVIEW_QUESTION_ANSWERED,SUPERVISOR_REVIEW_001.md;readiness/m2-benchmark-lock-v1.md;manuscript/main.md,ST000818 has450 source-reported people but15 population inference groups; training and evaluation weights distinguished
+SUP1-Q4,REVIEW_QUESTION_EVALUATED,SUPERVISOR_REVIEW_001.md;results/primary-comparisons.csv;results/human-information-budgets.csv;results/ccle-information-budgets.csv,All five primary contrasts favor statistical references; null advantage does not establish competitive superiority
