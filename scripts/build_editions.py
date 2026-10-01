@@ -23,7 +23,7 @@ from docx.shared import Cm, Pt
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'deliverables' / 'editions'
 REPO_URL = 'https://github.com/otcan/metabolic-representation-qualification'
-RELEASE_TAG = 'v1.0.0'
+RELEASE_TAG = 'v1.0.1'
 TITLE = 'Matched nulls and compact baselines qualify metabolic-state representations'
 AUTHOR = 'Oğuzcan Ünver'
 AFFILIATION = 'Metastate Bio Inc, 1207 Delaware Avenue, #1401, Wilmington, DE 19806, USA'
@@ -51,25 +51,72 @@ The qualification-ladder workflow, extension analyses, tests and figure code are
 """
 
 
-ETHICS = """## Ethical statement
+DECLARATIONS = [
+    ('Acknowledgments', 'Computational resources were provided by Metastate Bio Inc.'),
+    ('Research ethics', 'Not applicable. This study reanalysed publicly available, de-identified data and involved no new recruitment, intervention or data collection; ethical approval for the source studies is described in the original publications and deposits [10,11].'),
+    ('Informed consent', 'Not applicable.'),
+    ('Author contributions', 'The author has accepted responsibility for the entire content of this manuscript and approved its submission. O.Ü. conceived the study, defined the research questions and claim boundaries, directed the computational programme, provided resources, interpreted the results and revised the manuscript.'),
+    ('Use of Large Language Models, AI and Machine Learning Tools', 'OpenAI Codex and Anthropic Claude were used under the author\'s direction for code drafting, analysis orchestration, literature organization, figure preparation and manuscript-language development, as described in the Methods. The author verified all code outputs, citations and numerical claims.'),
+    ('Conflict of interest', 'O.Ü. is the founder of Metastate and is affiliated with Metastate Bio Inc, which develops commercial computational biology, biomarker and modelling products and services that could benefit from the publication of this work. The author declares no other conflict of interest.'),
+    ('Research funding', 'None declared.'),
+    ('Data availability', 'See the Data availability and Code availability sections.'),
+]
+ETHICS = '## Ethical statement\n\n' + '\n\n'.join(f'**{k}:** {v}' for k, v in DECLARATIONS) + '\n'
 
-**Acknowledgments:** Computational resources were provided by Metastate Bio Inc.
 
-**Author contributions:** O.Ü. conceived the study, defined the research questions and claim boundaries, directed the computational programme, provided resources, interpreted the results and revised the manuscript. The author has accepted responsibility for the entire content of this manuscript and approved its submission.
+def fill_declarations_template(out, archive_doi):
+    """Fill JIB's official declarations template with exactly the manuscript's statements."""
+    d = Document(ROOT / 'dossier/templates/JIB_Template_Ethical_Legal_Declarations.docx')
+    table = d.tables[0]
+    values = dict(DECLARATIONS)
+    values['Data availability'] = (
+        'Source data: Metabolomics Workbench ST002081 (https://doi.org/10.21228/M8ZM5P) and ST000818 '
+        '(https://doi.org/10.21228/M89M31), CC BY 4.0; CCLE 2019 release (not redistributed). Code, aggregate '
+        f'results and figure sources: {REPO_URL} (release {RELEASE_TAG})'
+        + (f', archived at https://doi.org/{archive_doi}.' if archive_doi else '.'))
+    filled = set()
+    for row in table.rows:
+        label = ' '.join(row.cells[0].text.split())
+        for key, value in values.items():
+            if label.lower().startswith(key.lower()[:18]):
+                row.cells[1].text = value
+                filled.add(key)
+    assert filled == set(values), set(values) - filled
+    d.save(out)
 
-**Research funding:** None declared.
 
-**Competing interests:** O.Ü. is the founder of Metastate and is affiliated with Metastate Bio Inc, which develops commercial computational biology, biomarker and modelling products and services that could benefit from the publication of this work. The author declares no other competing interests.
+ALT_TEXT = [
+    ('1', 'The qualification ladder.',
+     'Matched-null schematic, error ladders for two cohorts, and step effects: biochemistry beats matched nulls, compact statistics beat biochemistry.',
+     'A: toy lipid-descriptor graph and its degree-preserving rewired null. B, C: held-out RMSE for training mean, matched null, '
+     'descriptor median, PCA and all-visible ridge (ST002081 1.065, 0.419, 0.317, 0.196, 0.178; ST000818 2.013, 1.803, 1.227, '
+     '0.839, 0.849). D: error reductions with 95% intervals; all six steps are above zero.'),
+    ('2', 'Reconstruction performance across datasets.',
+     'Bar charts of held-out reconstruction error for every model in three datasets; compact statistical models have lower error than biochemical scores.',
+     'Three horizontal bar charts (ST002081, ST000818, CCLE) ordering all models by RMSE in training-SD units; biochemical '
+     'models in blue, compact statistical references in orange, other references in grey.'),
+    ('3', 'Paired primary contrasts.',
+     'Forest plot of five paired contrasts; every estimate and interval lies below zero, favouring the statistical reference over the biochemical model.',
+     'Reference-minus-structural-model RMSE differences with 95% and 99% per-contrast intervals for ST002081 and ST000818 versus '
+     'PCA and local SVD, and CCLE versus correlation-selected markers; all intervals exclude zero.'),
+]
 
-**Informed consent and ethical approval:** Not applicable. This study reanalysed publicly available, de-identified data and involved no new recruitment, intervention or data collection. Ethical approval and informed consent for the source studies are described in the original publications and deposits [10,11].
-"""
+
+def fill_alt_text_form(out):
+    d = Document(ROOT / 'dossier/templates/DeGruyter_Alt_Text_Submission_Form.docx')
+    rows = d.tables[0].rows
+    for row, (number, caption, alt, long) in zip(rows[1:], ALT_TEXT):
+        assert len(alt) <= 160, (number, len(alt))
+        for cell, value in zip(row.cells, ('—', number, caption, alt, long)):
+            cell.text = value
+    d.save(out)
 
 
 def front(edition, date, doi_pre):
     block = f'{AUTHOR}\\\n{AFFILIATION}\\\nCorrespondence: {CORRESPONDENCE}'
     if edition == 'preprint':
         doi = f' DOI: https://doi.org/{doi_pre}.' if doi_pre else ''
-        return f'**Preprint — not peer reviewed.** Version 1.0, {date}. Licence: CC BY 4.0.{doi}\n\n{block}\n'
+        return f'**Preprint — not peer reviewed.** Version 1.1, {date}. Licence: CC BY 4.0.{doi}\n\n{block}\n'
     return block + '\n'
 
 
@@ -206,8 +253,10 @@ def main():
         pandoc(src, folder / 'manuscript.docx')
         style_docx(folder / 'manuscript.docx', journal)
         sup = supplement
+        for bad in ('Internal', 'internal review', 'not a submission', 'Paper 1', 'Academic', 'review package'):
+            assert bad not in sup, ('supplement', bad)
         if not journal:
-            sup = re.sub(r'^(# [^\n]+\n)', r'\1\n**Preprint — not peer reviewed.** Version 1.0, ' + date + '.\n', sup, count=1)
+            sup = re.sub(r'^(# [^\n]+\n)', r'\1\n**Preprint — not peer reviewed.** Version 1.1, ' + date + '.\n', sup, count=1)
         (folder / 'supplementary-information.md').write_text(sup)
         pandoc(folder / 'supplementary-information.md', folder / 'supplementary-information.docx')
         style_docx(folder / 'supplementary-information.docx', False)
@@ -216,6 +265,8 @@ def main():
             for n, stem in enumerate(['figure1-qualification-ladder', 'figure1-performance', 'figure2-comparisons'], 1):
                 for ext in ('pdf', 'png'):
                     shutil.copy2(ROOT / 'figures' / f'{stem}.{ext}', folder / f'Figure{n}.{ext}')
+            fill_declarations_template(folder / 'ethical-legal-declarations.docx', archive_doi)
+            fill_alt_text_form(folder / 'alt-text-submission-form.docx')
             cover = ROOT / 'dossier/cover-letter-jib.md'
             pandoc(cover, folder / 'cover-letter.docx')
             style_docx(folder / 'cover-letter.docx', False)

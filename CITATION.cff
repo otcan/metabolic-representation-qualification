@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this workflow or evidence release, cite the archived release and the manuscript."
 title: "Metabolic representation qualification ladder"
 type: software
-version: 1.0.0
-doi: "10.5281/zenodo.23080177"
+version: 1.0.1
+doi: "10.5281/zenodo.23080585"
 date-released: 2026-10-01
 authors:
   - family-names: "Ünver"
@@ -19,6 +19,6 @@ preferred-citation:
   authors:
     - family-names: "Ünver"
       given-names: "Oğuzcan"
-  doi: "10.5281/zenodo.23080186"
+  doi: "10.5281/zenodo.23080584"
   year: 2026
   notes: "Preprint, not peer reviewed"

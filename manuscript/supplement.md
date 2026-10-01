@@ -1,7 +1,7 @@
 # Supplementary information
 
 
-**Internal review draft.** This supplement accompanies the adaptive Paper 1 qualification benchmark. It is not a submission or new public release. All model outcomes, including negative controls and implementation failures, are retained. Primary results use only reviewed human r2 and full CCLE runs.
+This supplement accompanies the manuscript "Matched nulls and compact baselines qualify metabolic-state representations". All model outcomes, including negative controls and implementation failures, are retained. Primary results use only the accepted human revision-2 and full CCLE runs.
 
 
 ## S1. Cohorts, masks and independent units

@@ -19,7 +19,7 @@ metrics=pd.read_csv(ROOT/'results/all-model-metrics.csv')
 contrasts=pd.read_csv(ROOT/'results/primary-comparisons.csv')
 baseline=pd.read_csv(ROOT/'receipts/m0-all-stage-summary.csv')
 parts=['# Supplementary information',
-       '\n**Internal review draft.** This supplement accompanies the adaptive Paper 1 qualification benchmark. It is not a submission or new public release. All model outcomes, including negative controls and implementation failures, are retained. Primary results use only reviewed human r2 and full CCLE runs.',
+       '\nThis supplement accompanies the manuscript "Matched nulls and compact baselines qualify metabolic-state representations". All model outcomes, including negative controls and implementation failures, are retained. Primary results use only the accepted human revision-2 and full CCLE runs.',
        '\n## S1. Cohorts, masks and independent units',
        '''ST002081 uses 1,539 assay records from 112 repository participant identifiers after removing 104 QC/missing-identifier rows. The final Hornburg et al. 2023 publication independently reports 1,539 samples, 112 participants and 104 QC samples. The deposit narrative says 1,546/109; its history is not explained by the available records. Repeated visits remain together. ST000818 provides 450 unique sample identifiers and 15 population categories and is described by its source as 450 individuals; distinct donor identity was not independently verified. CCLE aligns 913 lines but evaluates 876 lines in 18 retained lineages for every one of 60 targets. Each target has two predictions per line across two outer repeats, giving 105,120 prediction rows per model; these are not 105,120 independent cell lines.
 

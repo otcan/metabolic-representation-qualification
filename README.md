@@ -1,11 +1,17 @@
 # Metabolic representation qualification ladder
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23080177.svg)](https://doi.org/10.5281/zenodo.23080177)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23080585.svg)](https://doi.org/10.5281/zenodo.23080585)
 
 Code, tests, aggregate results and figure sources for:
 
 > **Matched nulls and compact baselines qualify metabolic-state representations.**
-> Oğuzcan Ünver. Preprint (not peer reviewed), 2026. <https://doi.org/10.5281/zenodo.23080186>
+> Oğuzcan Ünver. Preprint (not peer reviewed), 2026. <https://doi.org/10.5281/zenodo.23080584>
+
+## Versions
+
+- **v1.0.1 / preprint v1.1 (current):** removes a leftover internal-review header from the Supplementary
+  Information. No analysis, result or figure changed.
+- v1.0.0 / preprint v1.0: initial release.
 
 ## The idea
 
@@ -24,7 +30,7 @@ errors: treating "beats random" as competitive, and treating "loses to PCA" as u
 
 In the study, descriptor medians beat their matched nulls in every dataset, yet dimension-matched PCA
 and correlation-selected panels outperformed them in all five primary contrasts (Figure 1 in
-`paper/preprint-v1.0.pdf`).
+`paper/preprint-v1.1.pdf`).
 
 ## Contents
 
