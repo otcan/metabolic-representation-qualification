@@ -1,0 +1,554 @@
+{
+  "analysis": "ccle_adaptive_extension_v1",
+  "completed_at": "2026-10-01T13:57:01.771029+00:00",
+  "state": "COMPLETE",
+  "pilot": false,
+  "post_release_adaptive": true,
+  "targets": 60,
+  "full_archived_targets": 60,
+  "target_names": [
+    "AMP",
+    "CMP",
+    "GMP",
+    "NAD",
+    "NADP",
+    "UMP",
+    "acetylcholine",
+    "aconitate",
+    "adenine",
+    "adenosine",
+    "alanine",
+    "arginine",
+    "asparagine",
+    "aspartate",
+    "beta-alanine",
+    "betaine",
+    "cAMP",
+    "carnosine",
+    "choline",
+    "citrate",
+    "citrulline",
+    "cytidine",
+    "dimethylglycine",
+    "glucuronate",
+    "glutamate",
+    "glutamine",
+    "glycine",
+    "guanosine",
+    "histidine",
+    "homocysteine",
+    "hypoxanthine",
+    "inosine",
+    "inositol",
+    "isocitrate",
+    "isoleucine",
+    "kynurenine",
+    "leucine",
+    "lysine",
+    "malate",
+    "methionine",
+    "ornithine",
+    "oxalate",
+    "phenylalanine",
+    "proline",
+    "putrescine",
+    "sarcosine",
+    "serine",
+    "taurine",
+    "taurocholate",
+    "thymidine",
+    "thymine",
+    "thyroxine",
+    "trimethylamine-N-oxide",
+    "tyrosine",
+    "uracil",
+    "urate",
+    "uridine",
+    "valine",
+    "xanthine",
+    "xanthosine"
+  ],
+  "models": [
+    "direct_neighbor_ridge"
+  ],
+  "alpha_grid": [
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "outer_seed": 20260830,
+  "inner_seed_rule": "20260921 + outer_repeat * 100 + outer_fold",
+  "alpha_tie_break": "exact equal mean group MSE: smaller alpha",
+  "imputation_scaling": "training arithmetic mean, then population SD of imputed training rows; empty mean=0, zero SD=1",
+  "primary_metric": "sqrt(mean_target(mean_available_lineage(mean_cell_and_repeat_squared_error)))",
+  "correlation_selection": "absolute training Pearson correlation after mean imputation, stable lexical ties; same direct-neighbor count",
+  "pca": "all other mapped metabolites; component count matches direct-neighbor count capped by centered training rank; scores standardized to training population SD before ridge; representation-size matched only",
+  "code_sha256": "8edfad45b2cda68a2770874ba4007e3b2033c968c0a5722c8de9453c121bdeab",
+  "protocol_sha256": "b0bb3f38101a4d469eef9cc4cf4479433e0a57536df6edf15a74f2194f9def4f",
+  "protocol_path": "readiness/m2-benchmark-lock-v1.md",
+  "command": "scripts/../.venv/bin/python post_review_r1_ccle_null.py --seed 20262105",
+  "pid": 3025980,
+  "software": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.0",
+    "threadpoolctl": "3.6.0"
+  },
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-6.8.0-139-generic-x86_64-with-glibc2.39",
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": ".venv/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-61654e39.so",
+      "version": "0.3.34.0.0",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": ".venv/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-5f890258.so",
+      "version": "0.3.31.dev",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 1,
+      "prefix": "libgomp",
+      "filepath": ".venv/lib/python3.12/site-packages/scikit_learn.libs/libgomp-e985bcbb.so.1.0.0",
+      "version": null
+    }
+  ],
+  "max_workers": 1,
+  "elapsed_seconds": 65.72693120501935,
+  "peak_rss_kib": 204440,
+  "input_provenance": {
+    "mapping": {
+      "path": "work/release/artifacts/ccle-expanded/ccle_metabolite_mapping.csv",
+      "sha256": "226195d030f88ffb2a62de2606badbdb987621bd8bbe5231f9b7e2456f57bb21"
+    },
+    "candidates": {
+      "path": "work/release/artifacts/ccle-expanded/ccle_candidate_hypotheses.csv",
+      "sha256": "2376196042a633b378ba0ffb679a141a8dbfc43ce1d3f5dd9ddb99ca69e1d80c"
+    },
+    "source_manifest": {
+      "path": "work/release/artifacts/ccle-expanded/ccle_proof_manifest.json",
+      "sha256": "058b9a8f1997ff4a433facd5db693aba802b60bb6ee0c089c0b19b6d0fd247a5"
+    },
+    "target_definitions": {
+      "path": "work/release/artifacts/pathway-score-ccle/target-feature-sets.csv",
+      "sha256": "b4799b173a00f6c49ffc938b09f4ac602328a7a2403efac3b9dcff6bfcf3651e"
+    },
+    "raw_ccle": {
+      "CCLE_metabolomics_20190502.csv": {
+        "path": "work/release/data/raw/ccle/2019/CCLE_metabolomics_20190502.csv",
+        "sha256": "7c1d24aa575f4c58a29019026b5df8e6d1142a56925aba32ff3f1d1d5a7fd0ac"
+      },
+      "CCLE_RNAseq_genes_rpkm_20180929.gct.gz": {
+        "path": "work/release/data/raw/ccle/2019/CCLE_RNAseq_genes_rpkm_20180929.gct.gz",
+        "sha256": "954c94233cac97a695567497dcd103bd01d342b507385dc7949777267cf2440a"
+      },
+      "Cell_lines_annotations_20181226.txt": {
+        "path": "work/release/data/raw/ccle/2019/Cell_lines_annotations_20181226.txt",
+        "sha256": "77648d1cada2f325ba2c049a5fb5408434f73b963c8e1148fb82ba2653e469e1"
+      }
+    },
+    "archived_code": {
+      "src/genotype_gated_metabolism/datasets/ccle.py": "f17bf05cfd235c369848cd0eae06ccfe633945ba40bac71c0c045d748ea4c4c3",
+      "src/genotype_gated_metabolism/analysis/ccle_pathway_prediction.py": "25e686dd1ef6a3be75034f936961ab85ce82a0243bdbc11edb7498bf4abfad34",
+      "src/genotype_gated_metabolism/ml/validation.py": "48c47e302281e9405a9f23bdffda5c74a78ef4e19e9d97a45cb6e17d79b9dadc",
+      "src/genotype_gated_metabolism/features/signatures.py": "711d122f60ee8a2696e19601f86fceb2ce4ad03f2daa8f5098f10f294ba1e139"
+    },
+    "r1_null": {
+      "seed": 20262105,
+      "matching": "network degree and assay coverage (archived function)",
+      "sets": {
+        "AMP": [
+          "alanine",
+          "arginine",
+          "betaine",
+          "choline",
+          "dimethylglycine",
+          "glutamate",
+          "homocysteine",
+          "inositol",
+          "isocitrate",
+          "methionine",
+          "ornithine",
+          "sarcosine",
+          "serine",
+          "uracil",
+          "xanthosine"
+        ],
+        "CMP": [
+          "aspartate",
+          "glutamate",
+          "glutamine",
+          "homocysteine",
+          "malate"
+        ],
+        "GMP": [
+          "NAD",
+          "alanine",
+          "glutamate",
+          "homocysteine",
+          "trimethylamine-N-oxide"
+        ],
+        "NAD": [
+          "aspartate",
+          "cAMP",
+          "carnosine",
+          "citrulline",
+          "cytidine",
+          "dimethylglycine",
+          "glycine",
+          "histidine",
+          "homocysteine",
+          "kynurenine",
+          "methionine",
+          "sarcosine",
+          "serine",
+          "tyrosine",
+          "uridine"
+        ],
+        "NADP": [
+          "AMP",
+          "CMP",
+          "UMP",
+          "adenine",
+          "adenosine",
+          "alanine",
+          "carnosine",
+          "choline",
+          "citrate",
+          "glycine",
+          "homocysteine",
+          "leucine",
+          "ornithine",
+          "putrescine",
+          "serine",
+          "taurine",
+          "uridine",
+          "valine",
+          "xanthosine"
+        ],
+        "UMP": [
+          "NAD",
+          "alanine",
+          "carnosine",
+          "histidine",
+          "homocysteine"
+        ],
+        "acetylcholine": [
+          "hypoxanthine"
+        ],
+        "aconitate": [
+          "inosine",
+          "methionine"
+        ],
+        "adenine": [
+          "NAD",
+          "phenylalanine"
+        ],
+        "adenosine": [
+          "NAD",
+          "alanine",
+          "inositol",
+          "urate"
+        ],
+        "alanine": [
+          "NAD",
+          "adenosine",
+          "beta-alanine",
+          "inosine",
+          "thymine"
+        ],
+        "arginine": [
+          "NAD",
+          "aspartate",
+          "beta-alanine",
+          "betaine"
+        ],
+        "asparagine": [
+          "ornithine"
+        ],
+        "aspartate": [
+          "NAD",
+          "NADP",
+          "glycine",
+          "homocysteine",
+          "lysine"
+        ],
+        "beta-alanine": [
+          "CMP",
+          "UMP",
+          "alanine",
+          "glycine",
+          "kynurenine",
+          "leucine",
+          "ornithine"
+        ],
+        "betaine": [
+          "AMP",
+          "UMP",
+          "arginine",
+          "aspartate",
+          "glutamate"
+        ],
+        "cAMP": [
+          "glutamate"
+        ],
+        "carnosine": [
+          "choline",
+          "glutamate",
+          "glycine"
+        ],
+        "choline": [
+          "AMP",
+          "phenylalanine",
+          "thymidine"
+        ],
+        "citrate": [
+          "adenosine",
+          "glucuronate"
+        ],
+        "citrulline": [
+          "NAD",
+          "dimethylglycine",
+          "glutamate",
+          "homocysteine",
+          "phenylalanine"
+        ],
+        "cytidine": [
+          "aspartate",
+          "uracil"
+        ],
+        "dimethylglycine": [
+          "NAD",
+          "UMP",
+          "alanine",
+          "choline",
+          "isocitrate"
+        ],
+        "glucuronate": [
+          "NAD",
+          "citrate"
+        ],
+        "glutamate": [
+          "AMP",
+          "CMP",
+          "GMP",
+          "UMP",
+          "acetylcholine",
+          "aconitate",
+          "adenosine",
+          "choline",
+          "citrate",
+          "citrulline",
+          "dimethylglycine",
+          "homocysteine",
+          "putrescine",
+          "serine",
+          "uridine"
+        ],
+        "glutamine": [
+          "AMP",
+          "UMP"
+        ],
+        "glycine": [
+          "GMP",
+          "NAD",
+          "NADP",
+          "adenosine",
+          "choline",
+          "dimethylglycine",
+          "hypoxanthine",
+          "kynurenine",
+          "phenylalanine"
+        ],
+        "guanosine": [
+          "CMP"
+        ],
+        "histidine": [
+          "NAD",
+          "glycine",
+          "leucine"
+        ],
+        "homocysteine": [
+          "alanine",
+          "aspartate",
+          "isocitrate",
+          "phenylalanine",
+          "xanthine"
+        ],
+        "hypoxanthine": [
+          "AMP",
+          "glutamine",
+          "methionine"
+        ],
+        "inosine": [
+          "kynurenine",
+          "phenylalanine"
+        ],
+        "inositol": [
+          "cytidine",
+          "homocysteine"
+        ],
+        "isocitrate": [
+          "AMP",
+          "glutamate",
+          "malate",
+          "tyrosine"
+        ],
+        "isoleucine": [
+          "NAD"
+        ],
+        "kynurenine": [
+          "AMP",
+          "CMP",
+          "NAD"
+        ],
+        "leucine": [
+          "AMP",
+          "arginine",
+          "beta-alanine"
+        ],
+        "lysine": [
+          "AMP"
+        ],
+        "malate": [
+          "AMP",
+          "glutamate"
+        ],
+        "methionine": [
+          "CMP",
+          "GMP",
+          "NAD",
+          "alanine"
+        ],
+        "ornithine": [
+          "AMP",
+          "acetylcholine",
+          "adenosine",
+          "alanine",
+          "beta-alanine"
+        ],
+        "oxalate": [
+          "glutamate"
+        ],
+        "phenylalanine": [
+          "NAD",
+          "NADP",
+          "inositol",
+          "kynurenine"
+        ],
+        "proline": [
+          "AMP",
+          "beta-alanine",
+          "glutamate"
+        ],
+        "putrescine": [
+          "homocysteine"
+        ],
+        "sarcosine": [
+          "AMP",
+          "beta-alanine",
+          "citrulline"
+        ],
+        "serine": [
+          "GMP",
+          "UMP",
+          "beta-alanine",
+          "kynurenine"
+        ],
+        "taurine": [
+          "NADP",
+          "glutamate",
+          "thyroxine"
+        ],
+        "taurocholate": [
+          "uracil"
+        ],
+        "thymidine": [
+          "leucine"
+        ],
+        "thymine": [
+          "AMP",
+          "glutamate",
+          "valine"
+        ],
+        "thyroxine": [
+          "glutamate"
+        ],
+        "trimethylamine-N-oxide": [
+          "AMP"
+        ],
+        "tyrosine": [
+          "NAD",
+          "adenosine"
+        ],
+        "uracil": [
+          "AMP",
+          "histidine",
+          "homocysteine"
+        ],
+        "urate": [
+          "glutamate",
+          "isocitrate"
+        ],
+        "uridine": [
+          "adenine",
+          "citrulline",
+          "taurine"
+        ],
+        "valine": [
+          "NAD"
+        ],
+        "xanthine": [
+          "AMP",
+          "asparagine",
+          "inosine",
+          "sarcosine"
+        ],
+        "xanthosine": [
+          "adenosine"
+        ]
+      }
+    }
+  },
+  "outputs_sha256": {
+    "target-metrics.csv": "61727c2bc236586320783f594787648bf59ca0a893a04526f5987a3553bf9ef1",
+    "eligibility.csv": "d071e85777e635d4ff817a360cfd7357d89be74ef0f9e669617a441ccd014468",
+    "lineage-target-losses.csv": "59cbc9ebb109212b8582a78b00477afc4d08e767fe27439a158baf98450be28d",
+    "split-ledger.csv": "b061e9899f031a1202c19fe04c29828ba054da82a4b721461d7e2fd413591565",
+    "model-metrics.csv": "e8585d7e94e4e7b77e97d9c336f55100d9f11b30c0e3476bc1ddada3697e4cd1",
+    "fold-lineage-losses.csv": "ca55e63bf3048e1770515129f32f4bde8931799a5de1a716cdb90423dbbb61f8",
+    "tuning.csv": "b4d7d0fbef28f0965416ec877346f80cf0f5c4598491edb213a87ebc9cfaa09c",
+    "budgets.csv": "2f56d5a7c69a4d54c8b9c8c83b680f5052f1f5fa904f354dc0bfda660956b74b",
+    "primary-comparison.json": "64ba11ff8ea1dd879d39189de84c3715de850afc8abee0ec2429db93d0c59f37"
+  },
+  "private_predictions": {
+    "path": "work/r1-ccle/r1-ccle-null-s20262105/predictions.csv.gz",
+    "sha256": "d6e5643ec0f14f1f4cd06aad1faca83689d2aa34f2305cd92e20f0c0ed1eea48"
+  },
+  "limitations": [
+    "retrospective frozen mapping and global eligibility; not new blind validation",
+    "training lines equally weighted, evaluation lineages equally weighted within target",
+    "fixed-target conditional uncertainty; no pipeline bootstrap or frozen-model cross-cohort transfer",
+    "no external prior-art-specific package executed; generic NumPy SVD and sklearn ridge",
+    "Holm adjustment requires all five locked primary comparisons"
+  ],
+  "post_review_r1": true,
+  "r1_seed": 20262105,
+  "wrapper_sha256": "9b254aa391af07b11cc5090f5a6632bd73ef382734f4854bf7edc4f404c84410",
+  "amendment_sha256": "6be50a750860c091ff31de1889a2051a146140e5bb3d8b92a659b2d7bc56cd59"
+}

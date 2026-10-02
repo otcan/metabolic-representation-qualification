@@ -1,0 +1,41 @@
+{
+  "completed_at": "2026-10-01T13:54:09.011277+00:00",
+  "pid": 3002819,
+  "dataset": "st002081",
+  "mode": "primary",
+  "adaptive": true,
+  "pilot": false,
+  "completed_outer": 25,
+  "samples": 1539,
+  "groups": 112,
+  "features": 493,
+  "descriptors": 95,
+  "elapsed_seconds": 281.4618374740239,
+  "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2",
+  "protocol_sha256": "b0bb3f38101a4d469eef9cc4cf4479433e0a57536df6edf15a74f2194f9def4f",
+  "peak_rss_kib": 329652,
+  "resolution_amendment_sha256": "3cddaf5b7de0fa446da58e63f5e11d4b9dac4da96ffa89a7467b613a31ef8331",
+  "input_receipt_sha256": "b1e6e46db67df5a76645b7dbde354fa01ed98c579c797250a0d92d86b9b5f8bb",
+  "command": [
+    "post_review_r1_human_crossing.py",
+    "--dataset",
+    "st002081",
+    "--realization",
+    "11"
+  ],
+  "private_losses": "work/m2-human/r1-human-crossing-st002081-k11",
+  "output_sha256": {
+    "exclusions.csv": "a4c7476525744d8036d0a6168283209aa8463bc78cb66aa2a3a3f62917f34293",
+    "split-summary.csv": "cce02f38df73fbff61ccea67e4e752b241ad924fe5a6fa5c6e81132a1e362cff",
+    "feature-masks.csv": "42d688e174bf45a646938a8e92d1edd2072435dc5f8c890ad5f6acf120e6a130",
+    "budget-grid.csv": "16c1f4c87d20fe47cc68e9a040b02de55b7e9e8ffb59faf3cbd49116429a35af",
+    "model-metrics.csv": "6e1f621cdcc4f582cf84c4602f5e1b6af05e73d46f484febd40c3267f0fc8abe",
+    "tuning-grid.csv": "c2b575c8bc27a878047826be8320f741c38e3a13bd5fdcf749fb8eb94f837ab8",
+    "paired-comparisons.csv": "0eee2c9b989e46fc429806c778fa53b74ce933822c19e53095d50930615f1204",
+    "resolution-changes.csv": "386f5b74efcc8e6c8674840e6fded5b1ee38091022effec07e4d880c84ba7338"
+  },
+  "post_review_r1": true,
+  "realization": 11,
+  "wrapper_sha256": "706b39c2d65660c9ae553d10537e4e62bb4f90dbfa80607a4a621c16d05c7cc0",
+  "amendment_sha256": "6be50a750860c091ff31de1889a2051a146140e5bb3d8b92a659b2d7bc56cd59"
+}

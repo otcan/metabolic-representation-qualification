@@ -1,15 +1,21 @@
 # Metabolic representation qualification ladder
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23080585.svg)](https://doi.org/10.5281/zenodo.23080585)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23100294.svg)](https://doi.org/10.5281/zenodo.23100294)
 
 Code, tests, aggregate results and figure sources for:
 
-> **Matched nulls and compact baselines qualify metabolic-state representations.**
-> Oğuzcan Ünver. Preprint (not peer reviewed), 2026. <https://doi.org/10.5281/zenodo.23080584>
+> **Matched nulls and compact baselines qualify biochemical representations for metabolite reconstruction.**
+> Oğuzcan Ünver. Preprint (not peer reviewed), 2026. <https://doi.org/10.5281/zenodo.23100293>
 
 ## Versions
 
-- **v1.0.1 / preprint v1.1 (current):** removes a leftover internal-review header from the Supplementary
+- **v1.1.0 / preprint v2.0 (current):** revision after author review. Adds two post-review, outcome-aware
+  analyses frozen in `readiness/post-review-r1-amendment.md`: declared versus rewired membership crossed
+  with median, mean and local-SVD aggregation (20 null realizations per cohort; `scripts/post_review_r1_human_*`,
+  `evidence/new/r1-human-crossing-*`, `results/r1-membership-by-aggregation*.csv`), and the CCLE property-matched
+  null under the current estimator (20 seeds; `scripts/post_review_r1_ccle_*`, `evidence/new/r1-ccle-null-*`,
+  `results/r1-ccle-null-*`). New title, corrected null description, Figure 4, Supplement S11–S13.
+- v1.0.1 / preprint v1.1: removes a leftover internal-review header from the Supplementary
   Information. No analysis, result or figure changed.
 - v1.0.0 / preprint v1.0: initial release.
 
@@ -24,13 +30,16 @@ scores) is evaluated on a **qualification ladder**:
 3. **Biochemical representation** — the declared membership.
 4. **Compact statistics** — a learned representation of the same size (e.g. PCA).
 
+The human matched null preserves each descriptor's size and each lipid's number of descriptors, but not
+pairwise overlaps; the CCLE null matches neighbour count, network degree and assay coverage.
+
 The step from 2 to 3 shows whether biochemical membership carries information; the step from 3 to 4
 shows how much a compact statistical alternative still recovers. Reporting both avoids two opposite
 errors: treating "beats random" as competitive, and treating "loses to PCA" as uninformative.
 
 In the study, descriptor medians beat their matched nulls in every dataset, yet dimension-matched PCA
 and correlation-selected panels outperformed them in all five primary contrasts (Figure 1 in
-`paper/preprint-v1.1.pdf`).
+`paper/preprint-v2.0.pdf`).
 
 ## Contents
 

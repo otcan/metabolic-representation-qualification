@@ -10,18 +10,24 @@ ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'figures'; OUT.mkdir(exist_ok
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.spines.top':False,'axes.spines.right':False,'pdf.fonttype':42,'svg.fonttype':'none'})
 models=pd.read_csv(ROOT/'results/all-model-metrics.csv')
 primary=models.loc[models['mode'].eq('primary')].copy()
+secondary=pd.read_csv(ROOT/'results/secondary-mean-model-metrics.csv')
+secondary=secondary.loc[secondary.model.eq('descriptor_mean')]
+rmse_col='equal_group_rmse_sd' if 'equal_group_rmse_sd' in secondary else 'equal_group_rmse'
+display=pd.concat([primary,pd.DataFrame({'dataset':secondary.dataset,'mode':'secondary','model':'descriptor_mean','primary_rmse':secondary[rmse_col]})],ignore_index=True)
 labels={'structural_median':'Structural median','descriptor_local_svd':'Descriptor-local SVD','pca_matched_dimension':'PCA (matched dimension)',
         'all_visible_ridge':'All-visible ridge','family_median':'Family median','degree_preserving_null':'Degree-preserving null',
         'population_mean':'Training mean','direct_neighbor_ridge':'Reaction neighbors','correlation_selected_ridge':'Correlation-selected markers',
         'global_pca_ridge':'PCA (matched dimension)','all_other_metabolites_ridge':'All-metabolite ridge',
-        'network_additive_ridge':'Network + expression','network_interaction_ridge':'Network + interactions'}
+        'network_additive_ridge':'Network + expression','network_interaction_ridge':'Network + interactions','descriptor_mean':'Descriptor mean*'}
 colors={m:'#88939e' for m in labels}
-colors.update(structural_median='#2a78d6',direct_neighbor_ridge='#2a78d6',descriptor_local_svd='#eb6834',pca_matched_dimension='#eb6834',global_pca_ridge='#eb6834',correlation_selected_ridge='#eb6834',all_visible_ridge='#52514e',all_other_metabolites_ridge='#52514e')  # validated pair: biochemical blue, compact-statistical orange
+colors.update(descriptor_mean='#2a78d6',structural_median='#2a78d6',direct_neighbor_ridge='#2a78d6',descriptor_local_svd='#2a78d6',pca_matched_dimension='#eb6834',global_pca_ridge='#eb6834',correlation_selected_ridge='#eb6834',all_visible_ridge='#52514e',all_other_metabolites_ridge='#52514e')  # validated pair: biochemical blue, compact-statistical orange
 fig,axes=plt.subplots(3,1,figsize=(8.5,9.2),layout='constrained')
-for ax,dataset,title in zip(axes,['st002081','st000818','ccle'],['a  ST002081 · 112 participants','b  ST000818 · 15 population groups','c  CCLE · 60 targets, 18 lineages']):
-    frame=primary.loc[primary.dataset.eq(dataset)].sort_values('primary_rmse')
+for ax,dataset,title in zip(axes,['st002081','st000818','ccle'],['A  ST002081 · 112 participants','B  ST000818 · 15 population groups','C  CCLE · 60 targets, 18 lineages']):
+    frame=display.loc[display.dataset.eq(dataset)].sort_values('primary_rmse')
     y=np.arange(len(frame))
-    ax.barh(y,frame.primary_rmse,color=[colors[m] for m in frame.model],height=.65)
+    bars=ax.barh(y,frame.primary_rmse,color=[colors[m] for m in frame.model],height=.65)
+    for bar,model in zip(bars,frame.model):
+        if model=='descriptor_mean': bar.set_hatch('////'); bar.set_edgecolor('white')
     ax.set_yticks(y,[labels[m] for m in frame.model]); ax.invert_yaxis()
     ax.set_title(title,loc='left',fontweight='bold',fontsize=11)
     ax.set_xlabel('Held-out RMSE (training-SD units; lower is better)')

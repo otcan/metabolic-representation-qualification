@@ -1,7 +1,7 @@
 # Supplementary information
 
 
-This supplement accompanies the manuscript "Matched nulls and compact baselines qualify metabolic-state representations". All model outcomes, including negative controls and implementation failures, are retained. Primary results use only the accepted human revision-2 and full CCLE runs.
+This supplement accompanies the manuscript "Matched nulls and compact baselines qualify biochemical representations for metabolite reconstruction". All model outcomes, including negative controls and implementation failures, are retained. Primary results use only the accepted human revision-2 and full CCLE runs.
 
 
 ## S1. Cohorts, masks and independent units
@@ -231,7 +231,7 @@ Fourteen released pipeline/report stages completed independently in the new envi
 | pathway-score-publication-figures | 7 | 5 | True |
 | factorized-pathway-publication | 4 | 3 | True |
 
-Complete archived and regenerated null grids are retained in the review evidence and available from the author on request: 20 human structural nulls, 20 CCLE dimension-matched draws, 20 CCLE degree/coverage-matched draws, and ST000818's 20 nulls. Nine human sensitivity settings per cohort, ten CCLE settings, graph-mixing diagnostics, mapping ledgers and reaction-subsystem robustness tables are retained. These grids were originally adaptive; passing all sampled null realizations is not an exact graph-randomization p value or proof of uniform graph sampling. Archived CCLE target-bootstrap intervals remain a distinct estimand from the new biological-lineage intervals.
+Complete archived and regenerated null grids are included in the public code archive under evidence/baseline and evidence/new: 20 human structural nulls, 20 CCLE dimension-matched draws, 20 CCLE degree/coverage-matched draws, and ST000818's 20 nulls. Nine human sensitivity settings per cohort, ten CCLE settings, graph-mixing diagnostics, mapping ledgers and reaction-subsystem robustness tables are retained. These grids were originally adaptive; passing all sampled null realizations is not an exact graph-randomization p value or proof of uniform graph sampling. Archived CCLE target-bootstrap intervals remain a distinct estimand from the new biological-lineage intervals.
 
 
 ## S8. Audit and version history
@@ -253,32 +253,117 @@ The public code archive includes results/ CSVs, figure source data, exact run ma
 
 ## S11. Qualification ladder source values
 
-Main Figure 1 and its text reorganize accepted outputs without refitting. Rungs are primary equal-group RMSEs. Step estimates are error reductions with existing paired biological-group bootstrap intervals; shares are descriptive point-estimate decompositions of the training-mean-to-PCA gap and have no intervals. The CCLE matched-null step comes from the archived property-matched 20-seed ensemble and uses the released estimator.
+Main Figure 1 uses current estimators throughout. Rungs are primary equal-group or equal-lineage RMSEs; matched nulls are expected values over 20 realizations (Section S12). Compact steps are the locked primary contrasts. Shares are descriptive point-estimate partitions of the training-mean-to-compact gap on the RMSE and MSE scales and have no intervals. The archived CCLE ensemble row is listed for completeness only; it used the released estimator and target-level resampling.
 
 | Dataset | Rung | Construction | Primary RMSE |
 | --- | --- | --- | --- |
 | ST002081 | Training mean | no structure | 1.0652 |
-| ST002081 | Matched null | same shape, random membership | 0.4192 |
+| ST002081 | Matched null | same shape, rewired membership | 0.4168 |
 | ST002081 | Biochemical descriptors | declared membership, median | 0.3168 |
 | ST002081 | Compact statistics | PCA, same dimension | 0.1964 |
-| ST002081 | All-visible ridge | full panel, reference | 0.1780 |
+| ST002081 | Full-panel ridge | all visible inputs | 0.1780 |
 | ST000818 | Training mean | no structure | 2.0130 |
-| ST000818 | Matched null | same shape, random membership | 1.8030 |
+| ST000818 | Matched null | same shape, rewired membership | 1.7901 |
 | ST000818 | Biochemical descriptors | declared membership, median | 1.2267 |
 | ST000818 | Compact statistics | PCA, same dimension | 0.8394 |
-| ST000818 | All-visible ridge | full panel, reference | 0.8491 |
+| ST000818 | Full-panel ridge | all visible inputs | 0.8491 |
+| CCLE | Training mean | no structure | 0.9865 |
+| CCLE | Matched null | property-matched random neighbours | 0.9238 |
+| CCLE | Reaction neighbours | declared neighbours | 0.8239 |
+| CCLE | Compact statistics | correlation-selected, same count | 0.7315 |
+| CCLE | Full-panel ridge | all other metabolites | 0.6648 |
 
 | Dataset | Step | Estimate | 95% lower | 95% upper | Estimator |
 | --- | --- | --- | --- | --- | --- |
-| ST002081 | biochemistry vs matched null | 0.1024 | 0.0971 | 0.1079 | primary equal-group RMSE |
-| ST002081 | compact vs biochemistry | 0.1204 | 0.1153 | 0.1258 | primary equal-group RMSE |
-| ST002081 | matched null share | 0.7436 | nan | nan | descriptive share of training-mean-to-PCA gap |
-| ST002081 | biochemistry share | 0.1179 | nan | nan | descriptive share of training-mean-to-PCA gap |
-| ST002081 | compact share | 0.1385 | nan | nan | descriptive share of training-mean-to-PCA gap |
-| ST000818 | biochemistry vs matched null | 0.5763 | 0.0456 | 1.0306 | primary equal-group RMSE |
-| ST000818 | compact vs biochemistry | 0.3873 | 0.0748 | 0.6872 | primary equal-group RMSE |
-| ST000818 | matched null share | 0.1790 | nan | nan | descriptive share of training-mean-to-PCA gap |
-| ST000818 | biochemistry share | 0.4910 | nan | nan | descriptive share of training-mean-to-PCA gap |
-| ST000818 | compact share | 0.3300 | nan | nan | descriptive share of training-mean-to-PCA gap |
-| CCLE | biochemistry vs matched null | 0.1374 | 0.0971 | 0.1807 | archived property-matched 20-seed ensemble (earlier estimator) |
-| CCLE | compact vs biochemistry | 0.0924 | 0.0830 | 0.1034 | primary equal-lineage RMSE |
+| ST002081 | biochemistry vs matched null | 0.1000 | 0.0949 | 0.1053 | expected over 20 null realizations; current estimator; biological-group bootstrap |
+| ST002081 | compact vs biochemistry | 0.1204 | 0.1153 | 0.1258 | locked primary contrast; biological-group bootstrap |
+| ST002081 | matched null share rmse | 0.7464 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| ST002081 | biochemistry share rmse | 0.1151 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| ST002081 | compact share rmse | 0.1385 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| ST002081 | matched null share mse | 0.8767 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| ST002081 | biochemistry share mse | 0.0669 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| ST002081 | compact share mse | 0.0564 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| ST000818 | biochemistry vs matched null | 0.5634 | 0.0463 | 1.0098 | expected over 20 null realizations; current estimator; biological-group bootstrap |
+| ST000818 | compact vs biochemistry | 0.3873 | 0.0748 | 0.6872 | locked primary contrast; biological-group bootstrap |
+| ST000818 | matched null share rmse | 0.1900 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| ST000818 | biochemistry share rmse | 0.4800 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| ST000818 | compact share rmse | 0.3300 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| ST000818 | matched null share mse | 0.2533 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| ST000818 | biochemistry share mse | 0.5077 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| ST000818 | compact share mse | 0.2390 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| CCLE | biochemistry vs matched null | 0.1000 | 0.0846 | 0.1197 | expected over 20 null realizations; current estimator; biological-group bootstrap |
+| CCLE | compact vs biochemistry | 0.0924 | 0.0830 | 0.1034 | locked primary contrast; biological-group bootstrap |
+| CCLE | matched null share rmse | 0.2457 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| CCLE | biochemistry share rmse | 0.3920 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| CCLE | compact share rmse | 0.3623 | — | — | descriptive share of training-mean-to-compact gap (RMSE scale) |
+| CCLE | matched null share mse | 0.2732 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| CCLE | biochemistry share mse | 0.3988 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| CCLE | compact share mse | 0.3280 | — | — | descriptive share of training-mean-to-compact gap (MSE scale) |
+| CCLE | archived biochemistry vs matched null | 0.1374 | 0.0971 | 0.1807 | archived property-matched ensemble; released estimator; target bootstrap (supplement only) |
+
+
+## S12. Post-review analyses (outcome-aware)
+
+Both analyses were frozen in readiness/post-review-r1-amendment.md before their outcomes were computed and reuse the accepted code, splits and tuning. They do not alter the five primary contrasts.
+
+
+### Membership by aggregation (human cohorts)
+
+Membership effect is expected-null RMSE minus declared RMSE over 20 degree-preserving null realizations; realization 0 reproduces the primary null exactly.
+
+| Dataset | Rule | Declared | Expected null | Effect | 95% interval |
+| --- | --- | --- | --- | --- | --- |
+| ST002081 | median | 0.3168 | 0.4168 | 0.1000 | 0.095 to 0.105 |
+| ST002081 | mean | 0.2425 | 0.2417 | −0.0009 | −0.003 to 0.001 |
+| ST002081 | local svd | 0.2434 | 0.2789 | 0.0355 | 0.033 to 0.038 |
+| ST000818 | median | 1.2267 | 1.7901 | 0.5634 | 0.046 to 1.010 |
+| ST000818 | mean | 0.9443 | 1.0592 | 0.1149 | 0.012 to 0.216 |
+| ST000818 | local svd | 0.9574 | 1.3620 | 0.4046 | 0.019 to 0.764 |
+
+| Dataset | Rule | Positive effects, n/20 | 95% intervals above zero, n/20 | Smallest effect | Largest effect |
+| --- | --- | --- | --- | --- | --- |
+| ST002081 | median | 20/20 | 20/20 | 0.0956 | 0.1050 |
+| ST002081 | mean | 5/20 | 0/20 | −0.0025 | 0.0009 |
+| ST002081 | local svd | 20/20 | 20/20 | 0.0304 | 0.0409 |
+| ST000818 | median | 20/20 | 20/20 | 0.4488 | 0.5840 |
+| ST000818 | mean | 20/20 | 20/20 | 0.0341 | 0.1717 |
+| ST000818 | local svd | 20/20 | 20/20 | 0.1279 | 0.5898 |
+
+
+### CCLE matched null under the current estimator
+
+Declared direct neighbours: 0.8239; expected property-matched null over 20 seeds: 0.9238; effect 0.1000 (lineage-bootstrap 95% interval 0.0846 to 0.1197). All 20 seeds had intervals above zero. The table below reports seed-specific results under the current estimator. The archived ensemble, reported separately in Section S11, used the released estimator and target-level resampling and is not combined with the current ladder.
+
+| Seed | Effect | 95% lower | 95% upper |
+| --- | --- | --- | --- |
+| 20262100 | 0.0980 | 0.0824 | 0.1177 |
+| 20262101 | 0.0983 | 0.0825 | 0.1195 |
+| 20262102 | 0.0918 | 0.0778 | 0.1091 |
+| 20262103 | 0.1055 | 0.0898 | 0.1249 |
+| 20262104 | 0.1036 | 0.0878 | 0.1238 |
+| 20262105 | 0.1048 | 0.0883 | 0.1261 |
+| 20262106 | 0.0906 | 0.0758 | 0.1094 |
+| 20262107 | 0.1057 | 0.0893 | 0.1257 |
+| 20262108 | 0.0980 | 0.0827 | 0.1173 |
+| 20262109 | 0.0893 | 0.0748 | 0.1082 |
+| 20262110 | 0.1070 | 0.0901 | 0.1305 |
+| 20262111 | 0.1123 | 0.0957 | 0.1338 |
+| 20262112 | 0.1019 | 0.0854 | 0.1225 |
+| 20262113 | 0.0803 | 0.0670 | 0.0959 |
+| 20262114 | 0.1066 | 0.0890 | 0.1299 |
+| 20262115 | 0.0946 | 0.0785 | 0.1150 |
+| 20262116 | 0.1008 | 0.0872 | 0.1172 |
+| 20262117 | 0.1076 | 0.0896 | 0.1308 |
+| 20262118 | 0.1030 | 0.0875 | 0.1234 |
+| 20262119 | 0.0994 | 0.0850 | 0.1181 |
+
+
+## S13. Availability inventory
+
+| Material | Status | Location |
+| --- | --- | --- |
+| Code, tests, figure scripts, frozen amendments | Public | code archive: scripts/, tests/, readiness/ |
+| Aggregate model metrics, contrasts, budgets, ladder and post-review summaries | Public | results/ |
+| Per-run summaries, tuning and budget grids, null grids (archived and regenerated) | Public | evidence/new, evidence/baseline, evidence/archived-ccle-property-matched-null |
+| Raw Metabolomics Workbench and CCLE matrices | Not redistributed; regenerable | original repositories (Data availability) |
+| Individual predictions, participant-linked losses and split maps | Withheld | regenerable locally from code and public source data |

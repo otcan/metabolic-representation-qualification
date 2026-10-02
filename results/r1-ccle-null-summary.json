@@ -1,0 +1,17 @@
+{
+  "comparison": "ccle_rewired_null_minus_declared_direct_neighbours (expected over 20 property-matched seeds)",
+  "declared_rmse_sd": 0.8238802404236419,
+  "expected_null_rmse_sd": 0.9238478264206793,
+  "improvement_sd": 0.09996758599703737,
+  "ci95_lower": 0.08461262575656593,
+  "ci95_upper": 0.11970001137170222,
+  "draws": 10000,
+  "biological_groups": 18,
+  "targets": 60,
+  "uncertainty_scope": "conditional on fixed fitted predictions and target panel; lineage resampling, not full-pipeline refitting",
+  "seeds": 20,
+  "seeds_positive": 20,
+  "seeds_ci_above_zero": 20,
+  "seed_min": 0.08031627610905345,
+  "seed_max": 0.11225913422709655
+}

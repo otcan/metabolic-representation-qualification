@@ -1,0 +1,41 @@
+{
+  "completed_at": "2026-10-01T13:44:43.076842+00:00",
+  "pid": 2979419,
+  "dataset": "st000818",
+  "mode": "primary",
+  "adaptive": true,
+  "pilot": false,
+  "completed_outer": 25,
+  "samples": 450,
+  "groups": 15,
+  "features": 255,
+  "descriptors": 81,
+  "elapsed_seconds": 108.28558919415809,
+  "code_sha256": "ca522e52767bd07a7b24291cb9df9a3e2c70c4b5a2bf8e0ba8388e89e5607ef2",
+  "protocol_sha256": "b0bb3f38101a4d469eef9cc4cf4479433e0a57536df6edf15a74f2194f9def4f",
+  "peak_rss_kib": 339472,
+  "resolution_amendment_sha256": "3cddaf5b7de0fa446da58e63f5e11d4b9dac4da96ffa89a7467b613a31ef8331",
+  "input_receipt_sha256": "b1e6e46db67df5a76645b7dbde354fa01ed98c579c797250a0d92d86b9b5f8bb",
+  "command": [
+    "post_review_r1_human_crossing.py",
+    "--dataset",
+    "st000818",
+    "--realization",
+    "16"
+  ],
+  "private_losses": "work/m2-human/r1-human-crossing-st000818-k16",
+  "output_sha256": {
+    "exclusions.csv": "135a20afe13cb5f3028f5dba8b4c2cd4d12dda7465e10115d161922ddf913884",
+    "split-summary.csv": "16a35126678226e7a4f64d47abeec546a07c74bbe18615df98d23ea38b1928d4",
+    "feature-masks.csv": "cbe61161a3bbd66b16cf99807193612512a80b14434948fc0506eed624d604b0",
+    "budget-grid.csv": "75f66029d3e82c0f5a8ea419fa701c0e741a043ae29c8d256ca363243b1d125b",
+    "model-metrics.csv": "bf8188843fb861ef5ef320607eff331ae62a6428382ac051416fc1b7ed4ccb8e",
+    "tuning-grid.csv": "02a64424b09f1724572ca20333aab2ef34c6fe7191a014ae3dee65ef8b4510ef",
+    "paired-comparisons.csv": "108197e8d8e562cb13fffa0fc29b626e895f31b8b52f8829b91e63eb5e3ef805",
+    "resolution-changes.csv": "386f5b74efcc8e6c8674840e6fded5b1ee38091022effec07e4d880c84ba7338"
+  },
+  "post_review_r1": true,
+  "realization": 16,
+  "wrapper_sha256": "706b39c2d65660c9ae553d10537e4e62bb4f90dbfa80607a4a621c16d05c7cc0",
+  "amendment_sha256": "6be50a750860c091ff31de1889a2051a146140e5bb3d8b92a659b2d7bc56cd59"
+}

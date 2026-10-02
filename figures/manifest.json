@@ -1,19 +1,23 @@
 {
-  "script_sha256": "e9948eef222542f10d3f2802aafe0365c57dee8c58f354ea392d33730745a745",
+  "script_sha256": "3c79618ddcd71b48067fc850136a392e0c64d8eb981abec2c98c783c34157547",
   "files": {
+    "figure4-membership-aggregation.pdf": "fbcd478b2dd5606a1509ac56d6b3440723a8919bc098b64b452cb464e9ebd2d3",
     "figure2-source.csv": "eb8fcbcf079526195a88ea0f88187129e7300fbce90b21f4d9972070ab9b3f5c",
     "figure1-source.csv": "435b312e5fde68f3bda88dcbd31b953d23ec3410ecfba1ce8250cde3ffa0b292",
-    "figure2-comparisons.svg": "54eb72d30d1a02c6eff80dd8443ab8c4769755ff0185d8aa918a1187e060d18a",
-    "figure1-qualification-ladder.pdf": "724d0cce39b6f874ed404f76e29f4190506849eac014a2cffa11b710cbb0ad68",
+    "figure2-comparisons.svg": "1db2a63b767924b8ce1d1429884beb39a8e86bc0af2eca44720b0a856ae682c0",
+    "figure1-qualification-ladder.pdf": "2620653b5c4fdf944116e0ee7fa449334b5cdf3cd60398e41faaca6529f7c3b6",
     "figure2-comparisons.png": "a0a4b8ced2ca6ee7afac1a6d5c963f89b1c35d173ff365f886b7ca86c033ef05",
-    "figure1-performance.png": "5c7c320a2670ceb04a1df5dd78c900fca8599c8a3866bb836b75b1c02e63719b",
-    "figure1-qualification-ladder.png": "e68101314c290885838f9d38b7c841bbefd973af0f5d6e5dd3f8519965b626a2",
-    "figure2-comparisons.pdf": "abed6fb67927e0d8184d523394e21ea750499a0284007049e6fc5c3646bc582c",
-    "figure1-qualification-ladder.svg": "501e9834aa2176c284141c8a44c3c28b85f1a1a78329919edf9bcb50bbdb2fc0",
-    "figure1-performance.pdf": "839196452913cf48396ef0caa665b03bfecdd3a0e2f1f4a8e88215a1844470e5",
-    "figure1-performance.svg": "342b39e35f70041debf49e13018d219f62bb08e52f1921dfb3bd093561ef2388",
-    "qualification-ladder.csv": "867543055d23a93e5502e49a5dfc73eb3a3c47dcbe7a5b37b9831cf912881191",
-    "qualification-steps.csv": "2e607e5ba807c99dd6882b5a827333bd854146d85dcfa41fb91762eb1c685270"
+    "figure4-membership-aggregation.svg": "ec6b559d44c98f9faf33b6679436d7b96259ddd200f27d5ee7d46b4ea2bbb105",
+    "figure1-performance.png": "095c7d69c0c5a49c4782023d1f3fa3cbdba20d88fa1432e24bc7cd981f99a788",
+    "figure4-membership-aggregation.png": "91e233255b897dc613b0cf8de425f2f9aae8903e4ce75daa5baf5f686d95873c",
+    "figure1-qualification-ladder.png": "3171babdc14cf1f56ac0353cb0fbc7338447796c01ceb2635a90626730790af9",
+    "figure2-comparisons.pdf": "3292bf6105183304859f1f09b89222204d840dbe4f3b49d4112c4176b7184276",
+    "figure1-qualification-ladder.svg": "607443b7b94cb0bdc83ca2b5cd2fdd345c2ba772754d972ab08213fd48ddd5fe",
+    "figure1-performance.pdf": "e72526538d98e9a6565344e1e19daeb7fa3de507014d6b629d7d2dd032548b47",
+    "figure1-performance.svg": "9b909b67f82e97540cc147195cec0445a5c8e326077e01572200b70b674e213e",
+    "qualification-ladder.csv": "f19c7aff3cd3e5b9cdf5513499af418489ffcd92999296e9e79e2556b558b57e",
+    "qualification-steps.csv": "f4774d5bbf3307a72dd4f2540abd9804c72514a4ec4a508b35214f99f89f017e"
   },
-  "ladder_script_sha256": "016cc88c626b4cc4c854c2ba41c153e37365b08ede6eca648f5e62b052f2ad8a"
+  "ladder_script_sha256": "ea9121b630d1670bc243b78d3ffa6f02d758bf6aff249d1f5d7335db7dbdf8a5",
+  "aggregation_script_sha256": "8e7cac0091ec2ad16aad025b47bb78e51ecde3c3a88485cfe6ce59b3c2854ae6"
 }

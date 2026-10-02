@@ -23,8 +23,8 @@ from docx.shared import Cm, Pt
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'deliverables' / 'editions'
 REPO_URL = 'https://github.com/otcan/metabolic-representation-qualification'
-RELEASE_TAG = 'v1.0.1'
-TITLE = 'Matched nulls and compact baselines qualify metabolic-state representations'
+RELEASE_TAG = 'v1.1.0'
+TITLE = 'Matched nulls and compact baselines qualify biochemical representations for metabolite reconstruction'
 AUTHOR = 'Oğuzcan Ünver'
 AFFILIATION = 'Metastate Bio Inc, 1207 Delaware Avenue, #1401, Wilmington, DE 19806, USA'
 CORRESPONDENCE = 'can@metastate.bio; ORCID 0009-0007-2023-5084'
@@ -87,18 +87,22 @@ def fill_declarations_template(out, archive_doi):
 
 ALT_TEXT = [
     ('1', 'The qualification ladder.',
-     'Matched-null schematic, error ladders for two cohorts, and step effects: biochemistry beats matched nulls, compact statistics beat biochemistry.',
-     'A: toy lipid-descriptor graph and its degree-preserving rewired null. B, C: held-out RMSE for training mean, matched null, '
-     'descriptor median, PCA and all-visible ridge (ST002081 1.065, 0.419, 0.317, 0.196, 0.178; ST000818 2.013, 1.803, 1.227, '
-     '0.839, 0.849). D: error reductions with 95% intervals; all six steps are above zero.'),
+     'Null schematic, error ladders for three datasets, and step effects: declared membership beats matched nulls; compact statistics beat both.',
+     'A: toy lipid-descriptor graph and a degree-preserving rewired null. B-D: held-out RMSE for training mean, expected matched '
+     'null, biochemical representation, compact reference and full-panel ridge (ST002081 1.065, 0.417, 0.317, 0.196, 0.178; '
+     'ST000818 2.013, 1.790, 1.227, 0.839, 0.849; CCLE 0.987, 0.924, 0.824, 0.731, 0.665). E: both step effects with 95% intervals, all above zero.'),
     ('2', 'Reconstruction performance across datasets.',
      'Bar charts of held-out reconstruction error for every model in three datasets; compact statistical models have lower error than biochemical scores.',
-     'Three horizontal bar charts (ST002081, ST000818, CCLE) ordering all models by RMSE in training-SD units; biochemical '
-     'models in blue, compact statistical references in orange, other references in grey.'),
+     'Three horizontal bar charts (ST002081, ST000818, CCLE) ordering all models by RMSE in training-SD units; biochemically '
+     'structured models in blue (descriptor mean hatched, secondary), compact statistical references in orange, others in grey.'),
     ('3', 'Paired primary contrasts.',
      'Forest plot of five paired contrasts; every estimate and interval lies below zero, favouring the statistical reference over the biochemical model.',
      'Reference-minus-structural-model RMSE differences with 95% and 99% per-contrast intervals for ST002081 and ST000818 versus '
      'PCA and local SVD, and CCLE versus correlation-selected markers; all intervals exclude zero.'),
+    ('4', 'Membership effect by aggregation rule.',
+     'Declared versus rewired membership under median, mean and SVD aggregation; in ST002081 the mean shows no membership advantage.',
+     'Paired dots for declared membership and the expected matched null with null-minus-declared differences and 95% intervals: '
+     'ST002081 median 0.100, mean -0.001, local SVD 0.035; ST000818 median 0.563, mean 0.115, local SVD 0.405. Dashed line: PCA.'),
 ]
 
 
@@ -116,7 +120,7 @@ def front(edition, date, doi_pre):
     block = f'{AUTHOR}\\\n{AFFILIATION}\\\nCorrespondence: {CORRESPONDENCE}'
     if edition == 'preprint':
         doi = f' DOI: https://doi.org/{doi_pre}.' if doi_pre else ''
-        return f'**Preprint — not peer reviewed.** Version 1.1, {date}. Licence: CC BY 4.0.{doi}\n\n{block}\n'
+        return f'**Preprint — not peer reviewed.** Version 2.0, {date}. Licence: CC BY 4.0.{doi}\n\n{block}\n'
     return block + '\n'
 
 
@@ -147,16 +151,30 @@ def pandoc(src, docx):
 
 
 def size_columns(table, total_cm):
-    """Give each column a width proportional to its longest word and average text length."""
+    """Give each column room for its longest unbreakable word, then share the rest by content length."""
     cols = len(table.columns)
-    need = []
+    minimum, need = [], []
     for c in range(cols):
-        header = table.rows[0].cells[c].text
-        body = [row.cells[c].text for row in table.rows[1:]]
-        longest_cell = min(max((len(s) for s in body), default=4), 22)
-        longest_header_word = max((len(w) for w in re.split(r'[\s-]+', header) if w), default=4)
-        need.append(max(longest_cell, longest_header_word * 1.15, 4) * 0.21 + 0.45)
-    scale = total_cm / sum(need)
+        texts = [row.cells[c].text for row in table.rows]
+        body_words = [w for s in texts[1:] for w in re.split(r'[\s-]+', s) if w]
+        head_words = [w for w in re.split(r'[\s-]+', texts[0]) if w]
+        minimum.append(max(max((len(w) for w in body_words), default=3) * 0.24 + 0.5,
+                           max((len(w) for w in head_words), default=3) * 0.235 + 0.45))
+        longest_cell = min(max((len(s) for s in texts[1:]), default=4), 22)
+        need.append(max(longest_cell * 0.21 + 0.45, minimum[-1]))
+    if sum(minimum) > total_cm:  # protect the label column, shrink the rest
+        rest = total_cm - minimum[0]
+        others = sum(minimum[1:])
+        minimum = [minimum[0]] + [m * rest / others for m in minimum[1:]]
+        need = [max(n, m) for n, m in zip(need, minimum)]
+    if sum(need) <= total_cm:
+        widths_cm = [w * total_cm / sum(need) for w in need]
+    else:
+        spare = max(total_cm - sum(minimum), 0)
+        extra = [n - m for n, m in zip(need, minimum)]
+        widths_cm = [m + spare * x / sum(extra) if sum(extra) else m for m, x in zip(minimum, extra)]
+    scale = 1.0
+    need = widths_cm
     table.autofit = False
     widths = [w * scale for w in need]  # stretch or shrink to the text width
     grid = table._tbl.tblGrid
@@ -246,7 +264,7 @@ def main():
             assert bad not in text, (edition, bad)
         if journal:
             body, back, nfig, ntab = journal_layout(text)
-            assert (nfig, ntab) == (3, 3), (nfig, ntab)
+            assert (nfig, ntab) == (4, 4), (nfig, ntab)
             text = body + back
         src = folder / 'manuscript.md'
         src.write_text(text)
@@ -256,18 +274,22 @@ def main():
         for bad in ('Internal', 'internal review', 'not a submission', 'Paper 1', 'Academic', 'review package'):
             assert bad not in sup, ('supplement', bad)
         if not journal:
-            sup = re.sub(r'^(# [^\n]+\n)', r'\1\n**Preprint — not peer reviewed.** Version 1.1, ' + date + '.\n', sup, count=1)
+            sup = re.sub(r'^(# [^\n]+\n)', r'\1\n**Preprint — not peer reviewed.** Version 2.0, ' + date + '.\n', sup, count=1)
         (folder / 'supplementary-information.md').write_text(sup)
         pandoc(folder / 'supplementary-information.md', folder / 'supplementary-information.docx')
         style_docx(folder / 'supplementary-information.docx', False)
         to_pdf([folder / 'manuscript.docx', folder / 'supplementary-information.docx'], folder)
         if journal:
-            for n, stem in enumerate(['figure1-qualification-ladder', 'figure1-performance', 'figure2-comparisons'], 1):
+            for n, stem in enumerate(['figure1-qualification-ladder', 'figure1-performance', 'figure2-comparisons', 'figure4-membership-aggregation'], 1):
                 for ext in ('pdf', 'png'):
                     shutil.copy2(ROOT / 'figures' / f'{stem}.{ext}', folder / f'Figure{n}.{ext}')
             fill_declarations_template(folder / 'ethical-legal-declarations.docx', archive_doi)
             fill_alt_text_form(folder / 'alt-text-submission-form.docx')
-            cover = ROOT / 'dossier/cover-letter-jib.md'
+            letter = (ROOT / 'dossier/cover-letter-jib.md').read_text()
+            letter = letter.replace('https://doi.org/PREPRINT_DOI', f'https://doi.org/{preprint_doi}' if preprint_doi else '[preprint DOI pending]')
+            letter = letter.replace('https://doi.org/ARCHIVE_DOI', f'https://doi.org/{archive_doi}' if archive_doi else '[archive DOI pending]')
+            cover = folder / 'cover-letter.md'
+            cover.write_text(letter)
             pandoc(cover, folder / 'cover-letter.docx')
             style_docx(folder / 'cover-letter.docx', False)
             to_pdf([folder / 'cover-letter.docx'], folder)

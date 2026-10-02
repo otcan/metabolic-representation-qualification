@@ -1,0 +1,2 @@
+model,targets,mean_target_lineage_mse,archived_mean_target_rmse_sd,median_target_skill,squared_error_sum,prediction_rows,primary_rmse_sd,descriptive_row_weighted_rmse_sd
+direct_neighbor_ridge,60,0.8362165828507117,0.9070677627678196,0.0904922027836037,99908.69629233284,105120,0.9144487863465682,0.9748975295074329
